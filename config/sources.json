@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "source_id": "dummy",
+      "kind": "dummy",
+      "min_interval_sec": 3,
+      "license_note": "无外部许可（本地写死的练习假数据）",
+      "fields": ["company", "metric", "value"]
+    },
+    {
+      "source_id": "wb_industry_chn",
+      "kind": "wb_json",
+      "min_interval_sec": 3,
+      "license_note": "World Bank Open Data (CC BY 4.0)，对外成果须署名 World Bank",
+      "url": "https://api.worldbank.org/v2/country/CHN/indicator/NV.IND.MANF.ZS?format=json&per_page=5",
+      "fields": ["country", "indicator", "year", "value"]
+    }
+  ]
+}

@@ -40,10 +40,11 @@ def fetch_dummy(src):
     字段名先用我们自己的名字，不去对齐 fact 表的列 ——
     "对齐"是 M1b 清洗那一步的事。M1a 只负责拿到原始数据。
     """
+    # ★ 2026-11-01 本人定（方案 A）：指标名一律中性 —— 原字段名撞 §七 隐私红线（毛利率绝不进项目）
     return [
-        {"company": "示例企业 A", "metric": "indicator_x", "value": 1.0},
-        {"company": "示例企业 A", "metric": "indicator_y", "value": 2.0},
-        {"company": "示例企业 A", "metric": "indicator_z", "value": 3.0},
+        {"company": "示例企业 A", "metric": "test_metric_a", "value": 1.0},
+        {"company": "示例企业 A", "metric": "test_metric_b", "value": 2.0},
+        {"company": "示例企业 A", "metric": "test_metric_c", "value": 3.0},
     ]
 
 

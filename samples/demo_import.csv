@@ -1,0 +1,4 @@
+entity_name,entity_kind,metric_code,metric_name,metric_unit,metric_definition,metric_comparability,period_label,period_kind,period_end_date,scope_type,value_num,unit,source_locator,scope_label,value_scale,currency
+示例企业 A,company,demo_revenue,营业收入,万元,企业年度营业收入（演示用假数据）,演示数据、不可与任何真实口径比较,2024 年度,FY,2024-12-31,whole,1200,万元,演示 CSV 第 2 行 · 表 1,,10000,CNY
+示例企业 A,company,demo_net_profit,净利润,万元,企业年度净利润（演示用假数据）,演示数据、不可与任何真实口径比较,2024 年度,FY,2024-12-31,whole,120,万元,演示 CSV 第 3 行 · 表 1,,10000,CNY
+示例环节 B,segment,demo_output,产量,台,该环节产量（演示用假数据）,演示数据、不可与任何真实口径比较,2024 年度,FY,2024-12-31,whole,5000,台,演示 CSV 第 4 行 · 表 2,,1,

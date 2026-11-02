@@ -19,7 +19,7 @@
 
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from sqlalchemy import MetaData, Table, create_engine, event, func, select
@@ -95,7 +95,7 @@ def sha256_of(path):
 
 def to_utc_text(ts):
     """本地时间戳 → 库里的 UTC 文本（★ 本库所有时间列一律存 UTC，展示时再转本地）。"""
-    return datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.fromtimestamp(ts, tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def fact_id_for(document_id, metric_id, period_id, scope_type, scope_label, basis):

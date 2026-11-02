@@ -10,7 +10,7 @@
 import time
 from pathlib import Path
 
-from industry_atlas.fetch import load_config, fetch_by_kind, save_cache
+from industry_atlas.fetch import fetch_by_kind, load_config, save_cache
 
 
 def main():

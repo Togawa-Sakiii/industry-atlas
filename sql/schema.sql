@@ -153,7 +153,7 @@ CREATE TABLE fact (
     note              TEXT,
     created_at        TEXT NOT NULL DEFAULT (datetime('now')),
     CHECK ((value_num IS NULL) <> (value_text IS NULL)),
-    UNIQUE (document_id, metric_id, period_id, scope_type, scope_label, basis)
+    -- UNIQUE (document_id, metric_id, period_id, scope_type, scope_label, basis)
 );
 CREATE INDEX ix_fact_document    ON fact (document_id);
 CREATE INDEX ix_fact_entity_period ON fact (entity_id, period_id);

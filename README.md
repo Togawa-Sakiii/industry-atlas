@@ -55,8 +55,8 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-# 1) 建库（12 张表 + 3 触发器 + 2 视图）
-.\.venv\Scripts\python.exe -c "import sqlite3,pathlib; c=sqlite3.connect('data/industry.db'); c.executescript(pathlib.Path('sql/schema.sql').read_text(encoding='utf-8')); c.commit(); print('schema OK')"
+# 1) 建库 / 升级到最新结构（12 张表 + 3 触发器 + 2 视图）
+.\.venv\Scripts\alembic.exe upgrade head
 
 # 2) 跑测试
 .\.venv\Scripts\python.exe -m pytest -q
@@ -72,6 +72,8 @@ $env:PYTHONPATH = 'src'
 .\.venv\Scripts\python.exe -m industry_atlas.csv_import samples/demo_import.csv `
     --channel csv_demo --name "人工导出 CSV" --license "本人人工导出，仅本地研究"
 ```
+
+> 已有旧库（之前用 `schema.sql` 建过）先跑 `.\.venv\Scripts\alembic.exe stamp 0001`，再 `upgrade head`。
 
 ## 状态
 

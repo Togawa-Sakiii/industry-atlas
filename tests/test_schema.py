@@ -34,8 +34,11 @@ def seed(conn):
     conn.execute("INSERT INTO metric VALUES(?,?,?,?,?,?,?,?,?,datetime('now'))",
                  ("m1", "gross_margin", "毛利率", "%", "(收入-成本)/收入",
                   "同一指标不同口径不可比", "raw", None, None))
-    conn.execute("INSERT INTO entity VALUES(?,?,?,?,?,?,?,?,datetime('now'))",
-                 ("e1", "示例企业 A", "company", None, None, "unlisted", None, None))
+    conn.execute(
+        "INSERT INTO entity(entity_id,name,kind,stock_code,credit_code,listed_status,region,note) "
+        "VALUES(?,?,?,?,?,?,?,?)",
+        ("e1", "示例企业 A", "company", None, None, "unlisted", None, None),
+    )
     conn.execute("INSERT INTO document VALUES(?,?,?,?,?,?,?,?,?,?,?,datetime('now'))",
                  ("d1", "ch1", "某公司 2024 年报", "annual_report", None, "2025-04-20",
                   "2026-10-24", "a" * 64, "raw/d1.pdf", 1, None))

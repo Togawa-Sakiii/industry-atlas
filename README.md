@@ -27,7 +27,8 @@ industry-atlas/
 ├─ data/                      # 数据库与缓存（★ 已进 .gitignore，不入库）
 ├─ samples/demo_import.csv    # 手工导入通道的样例文件（可在库外照着填）
 ├─ scripts/engine_probe.py    # SQLAlchemy 连通性验证
-├─ sql/schema.sql             # schema v2：12 表 + 3 触发器 + 2 视图
+├─ migrations/                # Alembic 迁移（0001 基线 + 0002 加列）
+├─ sql/schema.sql             # schema v2 设计快照（建库用 alembic upgrade head）
 ├─ src/industry_atlas/
 │   ├─ fetch.py               # 读配置 · 取数（假源 / World Bank 公开 API）· 落盘缓存
 │   ├─ cli.py                 # 入口 1：抓数据 → data/cache/*.jsonl
@@ -78,4 +79,5 @@ $env:PYTHONPATH = 'src'
 - **M1a**（W5）✅ 配置驱动 + 假源 + World Bank 公开 API + 落盘缓存 + pytest 全绿
 - **M1b**（W6）✅ Core 反射 6 表 + 两源清洗映射（两种形状）+ 入库幂等（连跑 3 次：+6 / +0 / +0）
 - **M1c**（W7）✅ CSV 手工导入通道 + 行级校验（坏行不入库但要报第几行）+ 可重复导入
+- **工程护栏**（W7）✅ CI（Actions 红→绿）＋ Alembic（空库 upgrade head 建 12 表；entity.website 加列 / 回滚演练）
 - **下一步 M2a**（W8）：FastAPI 骨架 + 3 个查询接口，本机 8000 端口能打开

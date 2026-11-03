@@ -78,7 +78,8 @@ CREATE TABLE entity (
     listed_status TEXT NOT NULL DEFAULT 'unknown' CHECK (listed_status IN ('listed','unlisted','unknown')),
     region        TEXT,
     note          TEXT,
-    created_at    TEXT NOT NULL DEFAULT (datetime('now'))
+    created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+    website       TEXT
 );
 CREATE UNIQUE INDEX ux_entity_stock_code ON entity (stock_code) WHERE stock_code IS NOT NULL;
 
